@@ -1,0 +1,100 @@
+{
+  "v": 3,
+  "attachments": {},
+  "boards": {
+    "loadout-add.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "title": "Loadout · New PR",
+      "w": 390,
+      "x": 470,
+      "y": 1293
+    },
+    "loadout-body.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "title": "Loadout · Body",
+      "w": 390,
+      "x": 1410,
+      "y": 1293
+    },
+    "loadout-build.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "title": "Loadout · New plan",
+      "w": 390,
+      "x": 2350,
+      "y": 1293
+    },
+    "loadout-coach.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "title": "Loadout · Coach",
+      "w": 390,
+      "x": 2820,
+      "y": 1293
+    },
+    "loadout-lift.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "title": "Loadout · Lift history",
+      "w": 390,
+      "x": 3290,
+      "y": 1293
+    },
+    "loadout-lifts.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "title": "Loadout · Lifts (home)",
+      "w": 390,
+      "x": 0,
+      "y": 1293
+    },
+    "loadout-muscle.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "title": "Loadout · Muscle overview",
+      "w": 390,
+      "x": 1880,
+      "y": 1293
+    },
+    "loadout-plans.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "title": "Loadout · Plans + tune",
+      "w": 390,
+      "x": 940,
+      "y": 1293
+    },
+    "loadout-profile.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "title": "Loadout · Profile",
+      "w": 390,
+      "x": 3760,
+      "y": 1293
+    }
+  },
+  "createdOnFiles": {
+    "at": "2026-10-20T14:40:00Z",
+    "v": 1
+  },
+  "designSystems": [],
+  "launch": {
+    "view": "canvas"
+  },
+  "notes": {},
+  "order": [
+    "loadout-lifts.dc.html",
+    "loadout-add.dc.html",
+    "loadout-plans.dc.html",
+    "loadout-body.dc.html",
+    "loadout-muscle.dc.html",
+    "loadout-build.dc.html",
+    "loadout-coach.dc.html",
+    "loadout-lift.dc.html",
+    "loadout-profile.dc.html"
+  ],
+  "pages": [],
+  "title": "Prism — design directions"
+}

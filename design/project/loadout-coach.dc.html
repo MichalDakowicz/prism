@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Prism · Loadout · Coach</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&amp;family=IBM+Plex+Mono:wght@500;600&amp;family=Manrope:wght@400;500;600;700;800&amp;display=swap">
+<style>
+body{margin:0}
+a{color:#F2F1F7}a:hover{color:#FFFFFF}
+.lo-hide{scrollbar-width:none}
+.lo-hide::-webkit-scrollbar{display:none}
+@keyframes lo-in{0%{transform:translateY(10px);opacity:0}100%{transform:none;opacity:1}}
+.lo-in{animation:lo-in .35s ease both}
+.lo-input::placeholder{color:#7E7D8C}
+</style>
+</helmet>
+<div style="width:390px;height:844px;position:relative;overflow:hidden;background:#0B0B0E;color:#F2F1F7;font-family:Manrope, system-ui, sans-serif">
+  <div class="lo-hide" style="position:absolute;inset:0;overflow-y:auto;padding:52px 20px 190px;box-sizing:border-box;display:flex;flex-direction:column;gap:18px">
+
+    <header style="display:flex;flex-direction:column;gap:12px">
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:12px">
+        <h1 style="margin:0;font-family:'Big Shoulders Display', Impact, sans-serif;font-weight:900;font-size:44px;line-height:1">COACH</h1>
+        <span style="display:flex;align-items:center;gap:6px;font:600 11px 'IBM Plex Mono', ui-monospace, monospace;color:#A8A6A0">
+          <span aria-hidden="true" style="width:7px;height:7px;border-radius:4px;background:#1F9A56"></span>
+          GEMINI · ONLINE
+        </span>
+      </div>
+      <div class="lo-hide" role="group" aria-label="What Coach can read" style="display:flex;gap:6px;overflow-x:auto;margin:0 -20px;padding:0 20px">
+        <span style="flex:none;align-self:center;font:600 10px 'IBM Plex Mono', ui-monospace, monospace;color:#A8A6A0;padding-right:2px">READS</span>
+        <sc-for list="{{ctx}}" as="c" hint-placeholder-count="4">
+          <button onClick="{{c.toggle}}" aria-pressed="{{c.pressed}}" style="flex:none;height:36px;padding:0 12px;border-radius:18px;font:600 11px 'IBM Plex Mono', ui-monospace, monospace;cursor:pointer;display:flex;align-items:center;gap:6px;background:{{c.bg}};color:{{c.fg}};border:1px solid {{c.bd}};text-decoration:{{c.deco}}">
+            <sc-if value="{{c.on}}" hint-placeholder-val="{{ true }}">
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 6.2l2.3 2.3 4.7-5"></path></svg>
+            </sc-if>
+            {{c.label}}
+          </button>
+        </sc-for>
+      </div>
+    </header>
+
+    <div style="align-self:flex-end;max-width:82%;padding:12px 16px;border-radius:20px 20px 6px 20px;background:#1E1E25;font-size:14px;line-height:1.45">
+      Elbows are a bit sore after Thursday. Can you take some stress off arm day this week without dropping the biceps work?
+    </div>
+
+    <div style="display:flex;gap:10px;align-items:flex-start">
+      <span aria-hidden="true" style="flex:none;width:28px;height:28px;border-radius:14px;background:#F2C200;display:flex;align-items:center;justify-content:center;margin-top:1px">
+        <svg width="16" height="10" viewBox="0 0 16 10"><path d="M0 5h16" stroke="#0B0B0E" stroke-width="1.6"></path><rect x="2" y="1" width="2.4" height="8" rx="0.6" fill="#0B0B0E"></rect><rect x="11.6" y="1" width="2.4" height="8" rx="0.6" fill="#0B0B0E"></rect></svg>
+      </span>
+      <p style="margin:0;font-size:14px;line-height:1.55;color:#E4E3EC">Your rest note from this morning mentions sore elbows. In Day A the two heaviest elbow loads are close-grip bench and the overhead extension, so I'd swap one and lighten the other. All three curls stay as they are.</p>
+    </div>
+
+    <sc-if value="{{pending}}" hint-placeholder-val="{{ true }}">
+      <section class="lo-in" aria-labelledby="lo-prop" style="border-radius:12px;background:#141417;border:1px solid rgba(255,255,255,0.06);overflow:hidden;display:flex;flex-direction:column">
+        <div style="background:#F2C200;color:#0B0B0E;padding:8px 14px;display:flex;justify-content:space-between;align-items:center">
+          <h2 id="lo-prop" style="margin:0;font:900 18px 'Big Shoulders Display', Impact, sans-serif;letter-spacing:0.05em">PROPOSED EDIT · DAY A</h2>
+          <span style="font:600 10px 'IBM Plex Mono', ui-monospace, monospace">NOT SAVED</span>
+        </div>
+        <div style="padding:6px 14px 14px;display:flex;flex-direction:column">
+          <div style="display:flex;flex-direction:column;gap:4px;padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.06)">
+            <span style="font:500 11px 'IBM Plex Mono', ui-monospace, monospace;color:#7E7D8C;text-decoration:line-through">CLOSE-GRIP BENCH · 4 × 6–8 · 75 KG</span>
+            <span style="font-size:14px;font-weight:700;display:flex;align-items:center;gap:8px">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="#F2C200" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M2 7h9M8 4l3 3-3 3"></path></svg>
+              Cable pushdown · 3 × 10–12 · 30 kg
+            </span>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:4px;padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.06)">
+            <span style="font:500 11px 'IBM Plex Mono', ui-monospace, monospace;color:#7E7D8C;text-decoration:line-through">OH CABLE EXTENSION · 3 × 12 · 25 KG</span>
+            <span style="font-size:14px;font-weight:700;display:flex;align-items:center;gap:8px">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="#F2C200" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M2 7h9M8 4l3 3-3 3"></path></svg>
+              Overhead cable extension · 3 × 12 · 20 kg
+            </span>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:4px;padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.06)">
+            <span style="font:500 11px 'IBM Plex Mono', ui-monospace, monospace;color:#7E7D8C;text-decoration:line-through">SESSION · ~55 MIN</span>
+            <span style="font-size:14px;font-weight:700;display:flex;align-items:center;gap:8px">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="#F2C200" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M2 7h9M8 4l3 3-3 3"></path></svg>
+              ~50 min <span style="font-weight:500;color:#A8A6A0">(follows from the above)</span>
+            </span>
+          </div>
+          <p style="margin:10px 0 12px;font:500 11px 'IBM Plex Mono', ui-monospace, monospace;color:#A8A6A0">UNCHANGED: EZ-BAR CURL, INCLINE DB CURL, HAMMER CURL</p>
+          <div style="display:grid;grid-template-columns:1fr 1fr 1.3fr;gap:6px">
+            <button onClick="{{reject}}" style="height:48px;border-radius:24px;border:1px solid rgba(255,255,255,0.16);background:transparent;color:#F2F1F7;font:900 16px 'Big Shoulders Display', Impact, sans-serif;letter-spacing:0.05em;cursor:pointer">REJECT</button>
+            <button onClick="{{revise}}" style="height:48px;border-radius:24px;border:1px solid rgba(255,255,255,0.16);background:transparent;color:#F2F1F7;font:900 16px 'Big Shoulders Display', Impact, sans-serif;letter-spacing:0.05em;cursor:pointer">REVISE</button>
+            <button onClick="{{apply}}" style="height:48px;border-radius:24px;border:0;background:#F2C200;color:#0B0B0E;font:900 16px 'Big Shoulders Display', Impact, sans-serif;letter-spacing:0.05em;cursor:pointer">APPLY</button>
+          </div>
+        </div>
+      </section>
+    </sc-if>
+
+    <sc-if value="{{done}}" hint-placeholder-val="{{ false }}">
+      <div class="lo-in" style="display:flex;align-items:center;gap:12px;padding:10px 10px 10px 16px;border-radius:14px;background:#141417">
+        <span aria-hidden="true" style="width:10px;height:10px;border-radius:5px;background:{{doneDot}}"></span>
+        <span style="flex:1;font:900 18px 'Big Shoulders Display', Impact, sans-serif;letter-spacing:0.04em">{{doneText}}</span>
+        <button onClick="{{undo}}" style="height:44px;padding:0 16px;border-radius:22px;border:1px solid rgba(255,255,255,0.16);background:transparent;color:#F2F1F7;font:900 15px 'Big Shoulders Display', Impact, sans-serif;letter-spacing:0.05em;cursor:pointer">UNDO</button>
+      </div>
+    </sc-if>
+  </div>
+
+  <form style="position:absolute;left:20px;right:20px;bottom:104px;height:56px;border-radius:28px;background:#141417;border:1px solid rgba(255,255,255,0.1);display:flex;align-items:center;gap:6px;padding:0 6px 0 18px;box-sizing:border-box">
+    <label for="lo-msg" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Message Coach</label>
+    <input id="lo-msg" class="lo-input" type="text" placeholder="{{placeholder}}" style="flex:1;min-width:0;height:44px;border:0;background:transparent;color:#F2F1F7;font:500 14px Manrope, system-ui, sans-serif;outline:none">
+    <button type="button" aria-label="Send" style="width:44px;height:44px;border-radius:22px;border:0;background:#F2C200;color:#0B0B0E;display:flex;align-items:center;justify-content:center;cursor:pointer;padding:0">
+      <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 14V4M4.5 8.5L9 4l4.5 4.5"></path></svg>
+    </button>
+  </form>
+
+  <nav aria-label="Main" style="position:absolute;left:20px;right:20px;bottom:24px;height:68px;border-radius:34px;background:rgba(24,24,32,0.82);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border:1px solid rgba(255,255,255,0.08);display:grid;grid-template-columns:repeat(4, minmax(0, 1fr));gap:4px;padding:6px;box-sizing:border-box">
+    <a href="loadout-lifts.dc.html" style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;border-radius:28px;color:#9A99A8;text-decoration:none;font-size:11px;font-weight:700">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M6 20V11M12 20V4M18 20v-6"></path></svg>
+      Lifts
+    </a>
+    <a href="loadout-body.dc.html" style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;border-radius:28px;color:#9A99A8;text-decoration:none;font-size:11px;font-weight:700">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="4.5" r="2"></circle><path d="M12 7.5v7M6.5 10h11M9 21l3-6.5 3 6.5"></path></svg>
+      Body
+    </a>
+    <a href="loadout-plans.dc.html" style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;border-radius:28px;color:#9A99A8;text-decoration:none;font-size:11px;font-weight:700">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M9 6h11M9 12h11M9 18h11M4.5 6h.01M4.5 12h.01M4.5 18h.01"></path></svg>
+      Plans
+    </a>
+    <a href="loadout-coach.dc.html" aria-current="page" style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;border-radius:28px;background:#F2F1F7;color:#0C0C10;text-decoration:none;font-size:11px;font-weight:800">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16v11H10l-6 4z"></path></svg>
+      Coach
+    </a>
+  </nav>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { decision: null, ctx: { profile: true, prs: true, plan: true, rest: true }, revising: false };
+  }
+  renderVals() {
+    const s = this.state;
+    const items = [
+      { id: 'profile', label: 'PROFILE' }, { id: 'prs', label: 'PRS' },
+      { id: 'plan', label: 'DAY A' }, { id: 'rest', label: 'REST NOTE' }
+    ];
+    const ctx = items.map((it) => {
+      const on = !!s.ctx[it.id];
+      return {
+        label: it.label, on, pressed: on ? 'true' : 'false',
+        bg: on ? '#1E1E25' : 'transparent', fg: on ? '#F2F1F7' : '#7E7D8C',
+        bd: on ? 'transparent' : 'rgba(255,255,255,0.14)', deco: on ? 'none' : 'line-through',
+        toggle: () => this.setState((st) => { const n = Object.assign({}, st.ctx); n[it.id] = !n[it.id]; return { ctx: n }; })
+      };
+    });
+    const d = s.decision;
+    return {
+      ctx, pending: d === null, done: d !== null,
+      doneText: d === 'applied' ? 'APPLIED TO DAY A' : 'REJECTED · PLAN UNCHANGED',
+      doneDot: d === 'applied' ? '#F2C200' : '#7E7D8C',
+      placeholder: s.revising ? 'What should change in the proposal?' : 'Message Coach',
+      apply: () => this.setState({ decision: 'applied', revising: false }),
+      reject: () => this.setState({ decision: 'rejected', revising: false }),
+      revise: () => this.setState({ revising: true }),
+      undo: () => this.setState({ decision: null })
+    };
+  }
+}
+</script>
+</body>
+</html>

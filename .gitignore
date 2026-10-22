@@ -1,0 +1,13 @@
+.env
+.env.*
+!.env.example
+.cache/
+node_modules/
+mobile/android/
+mobile/ios/
+mobile/.expo/
+mobile/dist/
+mobile/artifacts/
+
+# Local agent settings
+.claude/

@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Prism · Loadout · Profile</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&amp;family=IBM+Plex+Mono:wght@500;600&amp;family=Manrope:wght@400;500;600;700;800&amp;display=swap">
+<style>
+body{margin:0}
+a{color:#F2F1F7}a:hover{color:#FFFFFF}
+.lo-hide{scrollbar-width:none}
+.lo-hide::-webkit-scrollbar{display:none}
+.lo-knob{transition:transform .2s ease}
+.lo-pp{transition:background .25s ease, box-shadow .25s ease}
+</style>
+</helmet>
+<div style="width:390px;height:844px;position:relative;overflow:hidden;background:#0B0B0E;color:#F2F1F7;font-family:Manrope, system-ui, sans-serif">
+  <div class="lo-hide" style="position:absolute;inset:0;overflow-y:auto;padding:46px 20px 120px;box-sizing:border-box;display:flex;flex-direction:column;gap:22px">
+
+    <header style="display:flex;flex-direction:column;gap:4px">
+      <a href="loadout-lifts.dc.html" aria-label="Back to lifts" style="width:44px;height:44px;margin-left:-10px;border-radius:22px;display:flex;align-items:center;justify-content:center;color:#F2F1F7">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M11 4L6 9l5 5"></path></svg>
+      </a>
+      <h1 style="margin:0;font-family:'Big Shoulders Display', Impact, sans-serif;font-weight:900;font-size:46px;line-height:0.95">PROFILE</h1>
+      <span style="font-size:12px;color:#A8A6A0">Stored on this phone. Coach only reads what you allow.</span>
+    </header>
+
+    <section aria-labelledby="pf-body" style="display:flex;flex-direction:column;gap:8px">
+      <h2 id="pf-body" style="margin:0;font:600 11px 'IBM Plex Mono', ui-monospace, monospace;color:#A8A6A0">BODY</h2>
+      <div style="display:flex;align-items:center;gap:12px;padding:12px 12px 12px 16px;border-radius:14px;background:#141417">
+        <div style="flex:1;display:flex;flex-direction:column;gap:2px">
+          <span style="font-weight:700;font-size:14px">Bodyweight</span>
+          <span style="font-size:12px;color:#A8A6A0">Saved with every PR for comparisons</span>
+        </div>
+        <span style="font:900 30px 'Big Shoulders Display', Impact, sans-serif">{{bw}}</span>
+        <span style="font:800 15px 'Big Shoulders Display', Impact, sans-serif;color:#A8A6A0">{{unit}}</span>
+      </div>
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;padding:8px 8px 8px 16px;border-radius:14px;background:#141417">
+        <span style="font-weight:700;font-size:14px">Units</span>
+        <div role="group" aria-label="Units" style="display:flex;gap:2px;padding:3px;border-radius:999px;background:#0B0B0E">
+          <sc-for list="{{units}}" as="o" hint-placeholder-count="2">
+            <button onClick="{{o.pick}}" aria-pressed="{{o.pressed}}" style="height:38px;padding:0 16px;border:0;border-radius:999px;font:600 11px 'IBM Plex Mono', ui-monospace, monospace;cursor:pointer;background:{{o.bg}};color:{{o.fg}}">{{o.label}}</button>
+          </sc-for>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="pf-train" style="display:flex;flex-direction:column;gap:8px">
+      <h2 id="pf-train" style="margin:0;font:600 11px 'IBM Plex Mono', ui-monospace, monospace;color:#A8A6A0">TRAINING</h2>
+      <div style="padding:12px 12px 14px 16px;border-radius:14px;background:#141417;display:flex;flex-direction:column;gap:10px">
+        <span style="font-weight:700;font-size:14px">Goal</span>
+        <div role="group" aria-label="Goal" style="display:grid;grid-template-columns:repeat(3, minmax(0, 1fr));gap:4px">
+          <sc-for list="{{goals}}" as="o" hint-placeholder-count="3">
+            <button onClick="{{o.pick}}" aria-pressed="{{o.pressed}}" style="height:42px;border-radius:12px;border:0;font:900 15px 'Big Shoulders Display', Impact, sans-serif;letter-spacing:0.04em;cursor:pointer;background:{{o.bg}};color:{{o.fg}}">{{o.label}}</button>
+          </sc-for>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(3, minmax(0, 1fr));gap:8px">
+        <div style="padding:12px 14px;border-radius:14px;background:#141417;display:flex;flex-direction:column;gap:2px"><span style="font:900 26px 'Big Shoulders Display', Impact, sans-serif">4</span><span style="font:600 10px 'IBM Plex Mono', ui-monospace, monospace;color:#A8A6A0">DAYS / WEEK</span></div>
+        <div style="padding:12px 14px;border-radius:14px;background:#141417;display:flex;flex-direction:column;gap:2px"><span style="font:900 26px 'Big Shoulders Display', Impact, sans-serif">55'</span><span style="font:600 10px 'IBM Plex Mono', ui-monospace, monospace;color:#A8A6A0">SESSION</span></div>
+        <div style="padding:12px 14px;border-radius:14px;background:#141417;display:flex;flex-direction:column;gap:2px"><span style="font:900 26px 'Big Shoulders Display', Impact, sans-serif">3 YR</span><span style="font:600 10px 'IBM Plex Mono', ui-monospace, monospace;color:#A8A6A0">EXPERIENCE</span></div>
+      </div>
+      <div style="padding:12px 12px 14px 16px;border-radius:14px;background:#141417;display:flex;flex-direction:column;gap:10px">
+        <span style="font-weight:700;font-size:14px">Equipment</span>
+        <div style="display:flex;flex-wrap:wrap;gap:6px">
+          <sc-for list="{{equip}}" as="e" hint-placeholder-count="5">
+            <button onClick="{{e.toggle}}" aria-pressed="{{e.pressed}}" style="height:36px;padding:0 12px;border-radius:18px;font:700 12px Manrope, system-ui, sans-serif;cursor:pointer;background:{{e.bg}};color:{{e.fg}};border:1px solid {{e.bd}}">{{e.label}}</button>
+          </sc-for>
+        </div>
+        <span style="font-size:12px;color:#A8A6A0">Avoid: skull crushers · Preferred: EZ-bar curl</span>
+      </div>
+    </section>
+
+    <section aria-labelledby="pf-rest" style="display:flex;flex-direction:column;gap:8px">
+      <h2 id="pf-rest" style="margin:0;font:600 11px 'IBM Plex Mono', ui-monospace, monospace;color:#A8A6A0">REST</h2>
+      <sc-for list="{{switches}}" as="sw" hint-placeholder-count="2">
+        <div style="display:flex;align-items:center;gap:12px;padding:12px 12px 12px 16px;border-radius:14px;background:#141417">
+          <div style="flex:1;display:flex;flex-direction:column;gap:2px;min-width:0">
+            <span id="{{sw.id}}" style="font-weight:700;font-size:14px">{{sw.label}}</span>
+            <span style="font-size:12px;color:#A8A6A0">{{sw.hint}}</span>
+          </div>
+          <button role="switch" aria-checked="{{sw.checked}}" aria-labelledby="{{sw.id}}" onClick="{{sw.toggle}}" style="width:56px;height:44px;border:0;background:transparent;padding:0;cursor:pointer;display:flex;align-items:center">
+            <span style="width:52px;height:30px;border-radius:15px;display:flex;align-items:center;padding:3px;box-sizing:border-box;background:{{sw.track}}">
+              <span class="lo-knob" style="width:24px;height:24px;border-radius:12px;background:#F2F1F7;transform:translateX({{sw.x}}px)"></span>
+            </span>
+          </button>
+        </div>
+      </sc-for>
+      <p style="margin:0;font-size:11px;color:#7E7D8C">Missing sleep is shown as "no record", never as poor recovery.</p>
+    </section>
+
+    <section aria-labelledby="pf-display" style="display:flex;flex-direction:column;gap:8px">
+      <h2 id="pf-display" style="margin:0;font:600 11px 'IBM Plex Mono', ui-monospace, monospace;color:#A8A6A0">DISPLAY</h2>
+      <div style="padding:12px 12px 14px 16px;border-radius:14px;background:#141417;display:flex;flex-direction:column;gap:12px">
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:10px">
+          <span style="font-weight:700;font-size:14px">Plates</span>
+          <div role="group" aria-label="Plate style" style="display:flex;gap:2px;padding:3px;border-radius:999px;background:#0B0B0E">
+            <sc-for list="{{plateOpts}}" as="o" hint-placeholder-count="2">
+              <button onClick="{{o.pick}}" aria-pressed="{{o.pressed}}" style="height:38px;padding:0 14px;border:0;border-radius:999px;font:600 11px 'IBM Plex Mono', ui-monospace, monospace;cursor:pointer;background:{{o.bg}};color:{{o.fg}}">{{o.label}}</button>
+            </sc-for>
+          </div>
+        </div>
+        <div role="img" aria-label="{{previewLabel}}" style="height:76px;position:relative">
+          <div style="position:absolute;left:0;right:0;top:35px;height:6px;background:#55545A;border-radius:3px"></div>
+          <div style="position:absolute;left:0;width:65px;top:33px;height:10px;background:#8E8C87;border-radius:2px"></div>
+          <div style="position:absolute;right:0;width:65px;top:33px;height:10px;background:#8E8C87;border-radius:2px"></div>
+          <div style="position:absolute;left:4px;top:0;bottom:0;display:flex;align-items:center;gap:2px">
+            <sc-for list="{{pvLeft}}" as="p" hint-placeholder-count="3">
+              <div class="lo-pp" style="width:{{p.w}}px;height:{{p.h}}px;background:{{p.c}};box-shadow:inset 0 0 0 1px {{p.edge}};border-radius:3px"></div>
+            </sc-for>
+            <div style="width:5px;height:18px;background:#B5B3AD;border-radius:2px;margin-left:1px"></div>
+          </div>
+          <div style="position:absolute;right:4px;top:0;bottom:0;display:flex;align-items:center;gap:2px">
+            <div style="width:5px;height:18px;background:#B5B3AD;border-radius:2px;margin-right:1px"></div>
+            <sc-for list="{{pvRight}}" as="p" hint-placeholder-count="3">
+              <div class="lo-pp" style="width:{{p.w}}px;height:{{p.h}}px;background:{{p.c}};box-shadow:inset 0 0 0 1px {{p.edge}};border-radius:3px"></div>
+            </sc-for>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="pf-data" style="display:flex;flex-direction:column;gap:8px">
+      <h2 id="pf-data" style="margin:0;font:600 11px 'IBM Plex Mono', ui-monospace, monospace;color:#A8A6A0">DATA &amp; COACH</h2>
+      <div style="display:grid;grid-template-columns:repeat(2, minmax(0, 1fr));gap:8px">
+        <button style="height:52px;border-radius:14px;border:0;background:#141417;color:#F2F1F7;font:700 13px Manrope, system-ui, sans-serif;cursor:pointer">Back up to file</button>
+        <button style="height:52px;border-radius:14px;border:0;background:#141417;color:#F2F1F7;font:700 13px Manrope, system-ui, sans-serif;cursor:pointer">Restore</button>
+      </div>
+      <div style="display:flex;align-items:center;gap:12px;padding:12px 12px 12px 16px;border-radius:14px;background:#141417">
+        <div style="flex:1;display:flex;flex-direction:column;gap:2px">
+          <span style="font-weight:700;font-size:14px">Gemini API key</span>
+          <span style="font:500 11px 'IBM Plex Mono', ui-monospace, monospace;color:#A8A6A0">STORED ON THIS PHONE</span>
+        </div>
+        <button style="height:40px;padding:0 14px;border-radius:20px;border:1px solid rgba(255,255,255,0.16);background:transparent;color:#F2F1F7;font:700 12px Manrope, system-ui, sans-serif;cursor:pointer">Change</button>
+      </div>
+    </section>
+  </div>
+
+  <nav aria-label="Main" style="position:absolute;left:20px;right:20px;bottom:24px;height:68px;border-radius:34px;background:rgba(24,24,32,0.82);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border:1px solid rgba(255,255,255,0.08);display:grid;grid-template-columns:repeat(4, minmax(0, 1fr));gap:4px;padding:6px;box-sizing:border-box">
+    <a href="loadout-lifts.dc.html" aria-current="page" style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;border-radius:28px;background:#F2F1F7;color:#0C0C10;text-decoration:none;font-size:11px;font-weight:800">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M6 20V11M12 20V4M18 20v-6"></path></svg>
+      Lifts
+    </a>
+    <a href="loadout-body.dc.html" style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;border-radius:28px;color:#9A99A8;text-decoration:none;font-size:11px;font-weight:700">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="4.5" r="2"></circle><path d="M12 7.5v7M6.5 10h11M9 21l3-6.5 3 6.5"></path></svg>
+      Body
+    </a>
+    <a href="loadout-plans.dc.html" style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;border-radius:28px;color:#9A99A8;text-decoration:none;font-size:11px;font-weight:700">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M9 6h11M9 12h11M9 18h11M4.5 6h.01M4.5 12h.01M4.5 18h.01"></path></svg>
+      Plans
+    </a>
+    <a href="loadout-coach.dc.html" style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;border-radius:28px;color:#9A99A8;text-decoration:none;font-size:11px;font-weight:700">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16v11H10l-6 4z"></path></svg>
+      Coach
+    </a>
+  </nav>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = {
+      unit: 'kg', goal: 'both', plates: 'color', hc: true, share: false,
+      equip: { Barbell: true, Dumbbells: true, Cables: true, Machines: true, 'Pull-up bar': false }
+    };
+  }
+  renderVals() {
+    const s = this.state;
+    const seg = (on) => ({ bg: on ? '#F2F1F7' : 'transparent', fg: on ? '#0B0B0E' : '#A8A6A0', pressed: on ? 'true' : 'false' });
+    const units = ['kg', 'lb'].map((u) => Object.assign({ label: u.toUpperCase(), pick: () => this.setState({ unit: u }) }, seg(s.unit === u)));
+    const goals = [['strength', 'STRENGTH'], ['size', 'SIZE'], ['both', 'BOTH']].map(([id, label]) => {
+      const on = s.goal === id;
+      return { label, pressed: on ? 'true' : 'false', bg: on ? '#F2C200' : '#0B0B0E', fg: on ? '#0B0B0E' : '#A8A6A0', pick: () => this.setState({ goal: id }) };
+    });
+    const equip = Object.keys(s.equip).map((label) => {
+      const on = !!s.equip[label];
+      return {
+        label, pressed: on ? 'true' : 'false', bg: on ? '#1E1E25' : 'transparent', fg: on ? '#F2F1F7' : '#7E7D8C',
+        bd: on ? 'transparent' : 'rgba(255,255,255,0.14)',
+        toggle: () => this.setState((st) => { const n = Object.assign({}, st.equip); n[label] = !n[label]; return { equip: n }; })
+      };
+    });
+    const sw = (id, label, hint, key) => ({
+      id: 'pf-' + id, label, hint, checked: s[key] ? 'true' : 'false',
+      track: s[key] ? '#F2C200' : '#2A2A31', x: s[key] ? 22 : 0,
+      toggle: () => this.setState((st) => { const n = {}; n[key] = !st[key]; return n; })
+    });
+    const black = s.plates === 'black';
+    const mk = (w, h, c) => ({ w, h, c: black ? '#0A0A0C' : c, edge: black ? '#4A4A52' : 'transparent' });
+    const pv = [mk(16, 72, '#D42A2A'), mk(13, 72, '#2A62D4'), mk(10, 62, '#F2C200'), mk(8, 52, '#1F9A56')];
+    return {
+      bw: s.unit === 'kg' ? '82' : '181', unit: s.unit.toUpperCase(), units, goals, equip,
+      switches: [
+        sw('hc', 'Sleep from Health Connect', 'Last night: 7 h 10 min · read-only', 'hc'),
+        sw('share', 'Share rest summary with Coach', s.share ? 'On: Coach sees last night\'s duration only' : 'Off: Coach never sees sleep data', 'share')
+      ],
+      plateOpts: [['color', 'COLOR'], ['black', 'BLACK']].map(([id, label]) => Object.assign({ label, pick: () => this.setState({ plates: id }) }, seg(s.plates === id))),
+      pvLeft: pv.slice().reverse(), pvRight: pv,
+      previewLabel: (black ? 'Black' : 'Colored') + ' plates on a loaded bar'
+    };
+  }
+}
+</script>
+</body>
+</html>

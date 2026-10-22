@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Prism · Loadout · New PR</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&amp;family=IBM+Plex+Mono:wght@500;600&amp;family=Manrope:wght@400;500;600;700;800&amp;display=swap">
+<style>
+body{margin:0}
+a{color:#F2F1F7}a:hover{color:#FFFFFF}
+@keyframes lo-slide-l{0%{transform:translateX(60px);opacity:0}100%{transform:none;opacity:1}}
+@keyframes lo-slide-r{0%{transform:translateX(-60px);opacity:0}100%{transform:none;opacity:1}}
+.lo-l{animation:lo-slide-l .4s cubic-bezier(.2,.9,.25,1.15) both}
+.lo-r{animation:lo-slide-r .4s cubic-bezier(.2,.9,.25,1.15) both}
+.lo-disc{transition:transform .12s ease}
+.lo-disc:active{transform:scale(.92)}
+.lo-num{-moz-appearance:textfield;appearance:textfield}
+.lo-num::-webkit-outer-spin-button,.lo-num::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+.lo-num:focus{outline:none;border-bottom-color:#F2C200 !important}
+.lo-sleeve{transition:width .3s ease}
+</style>
+</helmet>
+<div style="width:390px;height:844px;position:relative;overflow:hidden;background:#0B0B0E;color:#F2F1F7;font-family:Manrope, system-ui, sans-serif">
+
+  <header style="position:absolute;left:12px;right:12px;top:46px;display:flex;align-items:center;justify-content:space-between">
+    <a href="loadout-lifts.dc.html" aria-label="Close" style="width:44px;height:44px;border-radius:22px;display:flex;align-items:center;justify-content:center;color:#F2F1F7">
+      <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path d="M4 4l10 10M14 4L4 14" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path></svg>
+    </a>
+    <span style="font-family:'IBM Plex Mono', ui-monospace, monospace;font-size:12px;font-weight:600;letter-spacing:0.06em">NEW PR</span>
+    <button style="height:40px;padding:0 12px 0 14px;border-radius:20px;border:1px solid rgba(255,255,255,0.14);background:#141417;color:#F2F1F7;font:700 13px Manrope, system-ui, sans-serif;display:flex;align-items:center;gap:6px;cursor:pointer">
+      Bench press
+      <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M3 4.5l3 3 3-3"></path></svg>
+    </button>
+  </header>
+
+  <div style="position:absolute;left:20px;right:20px;top:100px;display:flex;align-items:flex-end;justify-content:space-between;gap:10px">
+    <div style="display:flex;flex-direction:column;gap:6px">
+      <label for="lo-weight" style="font-family:'IBM Plex Mono', ui-monospace, monospace;font-size:11px;font-weight:600;color:#A8A6A0">WEIGHT · TYPE IT OR LOAD PLATES</label>
+      <div style="display:flex;align-items:baseline;gap:6px">
+        <input id="lo-weight" class="lo-num" type="number" inputMode="decimal" min="0" step="0.25" value="{{inputVal}}" onChange="{{onType}}" style="width:{{inW}}px;background:transparent;border:0;border-bottom:2px dashed #3A3A42;color:#F2F1F7;padding:0;font:900 112px 'Big Shoulders Display', Impact, sans-serif;line-height:0.9">
+        <span style="font-family:'Big Shoulders Display', Impact, sans-serif;font-weight:800;font-size:28px">KG</span>
+      </div>
+    </div>
+    <span style="font-family:'Big Shoulders Display', Impact, sans-serif;font-weight:800;font-size:40px;line-height:1;color:#A8A6A0;padding-bottom:6px">× {{reps}}</span>
+  </div>
+
+  <figure aria-label="{{loadLabel}}" style="position:absolute;left:10px;right:10px;top:244px;height:124px;margin:0">
+    <div style="position:absolute;left:0;right:0;top:59px;height:6px;background:#55545A;border-radius:3px"></div>
+    <div class="lo-sleeve" style="position:absolute;left:0;top:57px;height:10px;background:#8E8C87;border-radius:2px;width:{{sleeveW}}px"></div>
+    <div class="lo-sleeve" style="position:absolute;right:0;top:57px;height:10px;background:#8E8C87;border-radius:2px;width:{{sleeveW}}px"></div>
+    <div style="position:absolute;left:5px;top:0;bottom:0;display:flex;align-items:center;gap:2px">
+      <sc-for list="{{left}}" as="p" hint-placeholder-count="2">
+        <div class="lo-l" style="width:{{p.w}}px;height:{{p.h}}px;background:{{p.c}};box-shadow:inset 0 0 0 1px {{p.edge}};border-radius:3px"></div>
+      </sc-for>
+      <div style="width:7px;height:26px;background:#B5B3AD;border-radius:2px;margin-left:1px"></div>
+    </div>
+    <div style="position:absolute;right:5px;top:0;bottom:0;display:flex;align-items:center;gap:2px">
+      <div style="width:7px;height:26px;background:#B5B3AD;border-radius:2px;margin-right:1px"></div>
+      <sc-for list="{{right}}" as="p" hint-placeholder-count="2">
+        <div class="lo-r" style="width:{{p.w}}px;height:{{p.h}}px;background:{{p.c}};box-shadow:inset 0 0 0 1px {{p.edge}};border-radius:3px"></div>
+      </sc-for>
+    </div>
+    <span style="position:absolute;left:50%;top:54px;transform:translateX(-50%);font-family:'IBM Plex Mono', ui-monospace, monospace;font-size:10px;color:#A8A6A0;background:#0B0B0E;padding:0 6px">BAR {{bar}}</span>
+    <sc-if value="{{hasLeftover}}" hint-placeholder-val="{{ false }}">
+      <span style="position:absolute;left:0;right:0;bottom:-6px;text-align:center;font-size:11px;color:#F2C200">{{leftoverNote}}</span>
+    </sc-if>
+  </figure>
+
+  <section aria-label="Load the bar" style="position:absolute;left:16px;right:16px;top:388px;display:flex;flex-direction:column;gap:12px">
+    <div style="display:flex;align-items:center;justify-content:space-between;gap:8px">
+      <sc-for list="{{discs}}" as="d" hint-placeholder-count="7">
+        <button class="lo-disc" onClick="{{d.add}}" aria-label="{{d.aria}}" style="flex:none;border-radius:50%;border:0;display:flex;align-items:center;justify-content:center;cursor:pointer;font:600 11px 'IBM Plex Mono', ui-monospace, monospace;padding:0;width:{{d.size}}px;height:{{d.size}}px;background:{{d.c}};color:{{d.fg}};box-shadow:inset 0 0 0 {{d.ring}}px {{d.ringC}}">{{d.label}}</button>
+      </sc-for>
+    </div>
+    <div style="display:flex;align-items:center;justify-content:space-between;gap:8px">
+      <div role="group" aria-label="Bar weight" style="display:flex;gap:2px;padding:3px;border-radius:999px;background:#141417">
+        <button onClick="{{bar20}}" aria-pressed="{{bar20Pressed}}" style="height:38px;padding:0 12px;border:0;border-radius:999px;font:600 11px 'IBM Plex Mono', ui-monospace, monospace;cursor:pointer;background:{{bar20Bg}};color:{{bar20Fg}}">BAR 20</button>
+        <button onClick="{{bar15}}" aria-pressed="{{bar15Pressed}}" style="height:38px;padding:0 12px;border:0;border-radius:999px;font:600 11px 'IBM Plex Mono', ui-monospace, monospace;cursor:pointer;background:{{bar15Bg}};color:{{bar15Fg}}">BAR 15</button>
+      </div>
+      <div style="display:flex;gap:4px">
+        <button onClick="{{undo}}" style="height:44px;padding:0 14px;border-radius:22px;border:1px solid rgba(255,255,255,0.14);background:transparent;color:#F2F1F7;font:700 12px Manrope, system-ui, sans-serif;cursor:pointer">Remove pair</button>
+        <button onClick="{{clear}}" style="height:44px;padding:0 14px;border-radius:22px;border:0;background:transparent;color:#A8A6A0;font:700 12px Manrope, system-ui, sans-serif;cursor:pointer">Clear</button>
+      </div>
+    </div>
+  </section>
+
+  <section aria-label="Reps" style="position:absolute;left:16px;right:16px;top:520px;display:flex;align-items:center;gap:12px;padding:10px 10px 10px 16px;border-radius:16px;background:#141417">
+    <div style="flex:1;display:flex;flex-direction:column;gap:3px;min-width:0">
+      <span style="font-family:'IBM Plex Mono', ui-monospace, monospace;font-size:11px;font-weight:600;color:#A8A6A0">REPS</span>
+      <span style="font-size:13px;font-weight:700">{{repsNote}}</span>
+    </div>
+    <button onClick="{{repsDown}}" aria-label="Fewer reps" style="width:44px;height:44px;border-radius:12px;border:0;background:#1F1F25;color:#F2F1F7;font:800 20px Manrope, system-ui, sans-serif;cursor:pointer">−</button>
+    <span style="font-family:'Big Shoulders Display', Impact, sans-serif;font-weight:900;font-size:30px;width:28px;text-align:center">{{reps}}</span>
+    <button onClick="{{repsUp}}" aria-label="More reps" style="width:44px;height:44px;border-radius:12px;border:0;background:#1F1F25;color:#F2F1F7;font:800 20px Manrope, system-ui, sans-serif;cursor:pointer">+</button>
+  </section>
+
+  <section aria-live="polite" style="position:absolute;left:16px;right:16px;top:608px;display:flex;align-items:center;gap:10px;flex-wrap:wrap">
+    <span style="font-family:'Big Shoulders Display', Impact, sans-serif;font-weight:900;font-size:17px;letter-spacing:0.04em;padding:4px 10px;border-radius:4px;background:{{tierBg}};color:{{tierFg}}">{{tier}}</span>
+    <span style="font-family:'IBM Plex Mono', ui-monospace, monospace;font-size:12px;font-weight:600">{{bwx}} × BW</span>
+    <span style="font-size:12px;color:#A8A6A0">{{nextNote}}</span>
+  </section>
+
+  <div style="position:absolute;left:16px;right:16px;bottom:30px;display:flex;flex-direction:column;gap:10px">
+    <p style="margin:0;font-size:12px;color:#A8A6A0;text-align:center">Saved with today's bodyweight · 82 kg</p>
+    <a href="loadout-lifts.dc.html" style="height:58px;border-radius:29px;background:#F2C200;color:#0B0B0E;text-decoration:none;display:flex;align-items:center;justify-content:center;font:900 22px 'Big Shoulders Display', Impact, sans-serif;letter-spacing:0.06em">SAVE PR</a>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"plates":{"editor":"enum","options":["color","black"],"default":"color"},"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { bar: 20, plates: [25, 15], reps: 1, typed: null };
+  }
+  renderVals() {
+    const s = this.state;
+    const black = (this.props.plates ?? 'color') === 'black';
+    const COLORS = { 25: '#D42A2A', 20: '#2A62D4', 15: '#F2C200', 10: '#1F9A56', 5: '#E8E8E8', 2.5: '#D42A2A', 1.25: '#B8B8B8' };
+    const SIZE = { 25: [22, 112], 20: [18, 112], 15: [14, 98], 10: [11, 84], 5: [9, 64], 2.5: [7, 50], 1.25: [6, 40] };
+    const SET = [25, 20, 15, 10, 5, 2.5, 1.25];
+    const plate = (p) => ({ w: SIZE[p][0], h: SIZE[p][1], c: black ? '#0A0A0C' : COLORS[p], edge: black ? '#4A4A52' : 'transparent' });
+    const split = (perSide) => {
+      const out = []; let rest = perSide;
+      SET.forEach((p) => { while (rest >= p - 0.001 && out.length < 8) { out.push(p); rest -= p; } });
+      return out;
+    };
+    const num = (v) => { const n = parseFloat(String(v).replace(',', '.')); return isFinite(n) && n > 0 ? n : 0; };
+    const typedMode = s.typed !== null;
+    const current = (st) => (st.typed !== null ? split(Math.max(0, (num(st.typed) - st.bar) / 2)) : st.plates.slice());
+    const sorted = current(s).sort((a, b) => b - a);
+    const loaded = s.bar + 2 * sorted.reduce((a, b) => a + b, 0);
+    const total = typedMode ? num(s.typed) : loaded;
+    const leftover = typedMode ? Math.round((total - loaded) * 100) / 100 : 0;
+    const side = sorted.map(plate);
+    const stackW = side.reduce((a, p) => a + p.w + 2, 0) + 14;
+    const est = s.reps === 1 ? total : total * (1 + s.reps / 30);
+    const std = [50, 72.5, 97.5, 127.5, 162.5];
+    const TIERS = ['BEGINNER', 'NOVICE', 'INTERMEDIATE', 'ADVANCED', 'ELITE'];
+    const TBG = ['#E8E8E8', '#1F9A56', '#F2C200', '#2A62D4', '#D42A2A'];
+    const TFG = ['#0B0B0E', '#FFFFFF', '#0B0B0E', '#FFFFFF', '#FFFFFF'];
+    let t = -1; std.forEach((v, i) => { if (est >= v) t = i; });
+    const fmt = (n) => (Math.round(n * 100) / 100).toString();
+    const nextT = t + 1;
+    const nextNote = nextT <= 4 ? TIERS[nextT].charAt(0) + TIERS[nextT].slice(1).toLowerCase() + ' at ' + std[nextT] + ' kg' : 'Top tier';
+    const pressed = (b) => s.bar === b;
+    const inputVal = typedMode ? s.typed : fmt(total);
+    return {
+      bar: s.bar, reps: s.reps,
+      inputVal, inW: Math.max(2, String(inputVal).length) * 52 + 8,
+      onType: (e) => this.setState({ typed: e.target.value }),
+      left: side.slice().reverse(), right: side,
+      sleeveW: 5 + side.reduce((a, p) => a + p.w + 2, 0) + 8,
+      hasLeftover: leftover > 0.001 || (typedMode && total > 0 && total < s.bar),
+      leftoverNote: total > 0 && total < s.bar ? 'Lighter than the bar' : 'Plates shown are the closest load · ' + fmt(leftover) + ' kg not shown',
+      loadLabel: s.bar + ' kg bar with ' + (sorted.length ? sorted.join(', ') + ' kg per side' : 'no plates'),
+      discs: SET.map((p) => ({
+        label: String(p), size: { 25: 50, 20: 48, 15: 46, 10: 44, 5: 44, 2.5: 44, 1.25: 44 }[p],
+        c: black ? '#0A0A0C' : COLORS[p], fg: !black && (p === 15 || p === 5 || p === 1.25) ? '#0B0B0E' : '#FFFFFF',
+        ring: black ? 1 : (p >= 10 ? 6 : 4), ringC: black ? '#4A4A52' : 'rgba(0,0,0,0.28)',
+        aria: 'Add a pair of ' + p + ' kg plates',
+        add: () => this.setState((st) => {
+          const base = current(st);
+          return base.length >= 8 ? { plates: base, typed: null } : { plates: base.concat([p]), typed: null };
+        })
+      })),
+      undo: () => this.setState((st) => {
+        const ps = current(st).sort((a, b) => b - a); ps.pop(); return { plates: ps, typed: null };
+      }),
+      clear: () => this.setState({ plates: [], typed: null }),
+      bar20: () => this.setState({ bar: 20 }), bar15: () => this.setState({ bar: 15 }),
+      bar20Pressed: pressed(20) ? 'true' : 'false', bar15Pressed: pressed(15) ? 'true' : 'false',
+      bar20Bg: pressed(20) ? '#F2F1F7' : 'transparent', bar20Fg: pressed(20) ? '#0B0B0E' : '#A8A6A0',
+      bar15Bg: pressed(15) ? '#F2F1F7' : 'transparent', bar15Fg: pressed(15) ? '#0B0B0E' : '#A8A6A0',
+      repsUp: () => this.setState((st) => ({ reps: Math.min(12, st.reps + 1) })),
+      repsDown: () => this.setState((st) => ({ reps: Math.max(1, st.reps - 1) })),
+      repsNote: s.reps === 1 ? 'Measured single' : 'Rep set · est. single ≈ ' + Math.round(est * 2) / 2 + ' kg',
+      tier: t < 0 ? 'BELOW BEGINNER' : TIERS[t], tierBg: t < 0 ? '#2A2A30' : TBG[t], tierFg: t < 0 ? '#F2F1F7' : TFG[t],
+      bwx: (est / 82).toFixed(2), nextNote
+    };
+  }
+}
+</script>
+</body>
+</html>
